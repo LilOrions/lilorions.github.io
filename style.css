@@ -8,6 +8,91 @@
   --white: rgb(250,250,250);
 }
 
+/* Tutto lo stile qui dentro è solo per i telefoni */
+@media only screen and (max-width: 600px) {
+  header {
+    grid-template-columns: 1fr 3fr 1fr;
+    padding-left: 2.5% !important;
+    padding-right: 2.5% !important;
+  }
+  
+  .header {
+    margin: 0 !important;
+    
+    & .header-button {
+      display: flex;
+    }
+  }
+  #twitch-embed {
+    margin-top: 1%;
+    width: 80%;
+    aspect-ratio: 16/14;
+    border-radius: 10px;
+    padding: 1.5%;
+    padding-bottom: .5%;
+  }
+}
+/* Tutto lo stile qui dentro è solo per i computer */
+@media only screen and (min-width: 601px) {
+  header {
+    grid-template-columns: 1.6fr 1fr 1.6fr;
+  }
+  #twitch-embed {
+    clip: rect(0, 100px, 0, 0);
+    margin-top: 2%;
+    width: 75%;
+    aspect-ratio: 16/9;
+    border-radius: 5px;
+    padding: .75%;
+    padding-bottom: .3%;
+  }
+  .header {
+    & button:hover {
+      color: var(--10);
+      cursor: pointer;
+      transform: translate(0,3px);
+    }
+    & > .header-button {
+      float: left;
+      & * {
+        width:fit-content;
+        display: flex;
+        margin: auto;
+      }
+      & button {
+        background:none;
+        border:none;
+        color: var(--white);
+        transform: translate(0,-5px);
+        transition: color .2s ease-out, transform .3s ease-out;
+
+      }
+      & i {
+        transform: translate(0,10px);
+        opacity: 0;
+        font-size: 20px;
+        transition: opacity .3s ease-out, transform .3s ease-out, font-size .3s ease-out;
+      }
+      
+      &:hover {
+        cursor: pointer;
+        &:active button {
+          color: var(--10-dark);
+        }
+        & button {
+          color: var(--10);
+          transform: translate(0,0px);
+        }
+        & i {
+          opacity: 1;
+          transform: translate(0,0px);
+        }
+      }
+    }
+  }
+}
+
+
 * {
   font-family: 'Outfit';
   font-weight: 400;
@@ -21,10 +106,11 @@
   background: var(--10);
   color: var(--10-dark);
 }
-body {
+html, body {
   background-color: var(--60);
   color: rgb(250,250,250);
   margin: 0;
+  height:100%;
 }
 
 header {
@@ -32,10 +118,7 @@ header {
   background-color: var(--30);
   background: linear-gradient(180deg, var(--30) 0%, transparent 100%);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
-  user-drag: none;
-  -webkit-user-drag: none;
   & > h1 {
     margin:auto;
     color: var(--10-dark);
@@ -43,7 +126,9 @@ header {
     -webkit-animation: Gold 5s ease-out infinite;
     -moz-animation: Gold 5s ease-out infinite;
     animation: Gold 3s ease-out alternate infinite;
-    
+  }
+  & * {
+    -webkit-user-drag: none;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -54,28 +139,45 @@ header {
   margin: auto;
   &.left {
     margin-left: 12px;
-    margin-right: auto; 
+    margin-right: auto;
   }
   &.right {
     margin-left: auto;
     margin-right: 12px;
   }
-  & > button {
+  & button {
     background:none;
     border:none;
     color: var(--white);
     font-size: 16px;
     transition: color .3s ease-out, transform .3s ease-out;
-    &:hover {
-      color: var(--10);
-      cursor: pointer;
-      transform: translate(0,3px);
+    &:active {
+      color: var(--10-dark);
+      transition: color .2s ease-out, transform .3s ease-out;
     }
   }
 }
-.css-selector {
+
+#lang-icon {
+  padding-top: 30px;
+  background-size: 30px;
+  background-position: 50% 10px;
+  background-repeat: no-repeat;
 }
 
+main > * {
+  margin:auto
+}
+
+#twitch-embed {
+  background: linear-gradient(270deg, #9146ff, #9e8dff);
+  -webkit-animation: AnimationName 4s ease infinite;
+  -moz-animation: AnimationName 4s ease infinite;
+  animation: AnimationName 4s ease infinite;
+}
+
+
+/* animazione del logo */
 @-webkit-keyframes Gold {
   0% {background-position:0% 50%}
   50% {background-position:100% 50%}
@@ -91,4 +193,21 @@ header {
     color: var(--10);
     text-shadow: rgb(255,229,126) 0px 0px 30px;
   }
+}
+
+/* animazione della cornice di twitch */
+@-webkit-keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
