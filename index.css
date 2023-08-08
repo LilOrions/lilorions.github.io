@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
-
 :root {
   --60: rgb(10,10,10);
   --30: rgb(30,30,30);
@@ -119,7 +117,7 @@ header {
   background: linear-gradient(180deg, var(--30) 0%, transparent 100%);
   display: grid;
   grid-template-rows: 1fr;
-  & > h1 {
+  & h1 {
     margin:auto;
     color: var(--10-dark);
 
@@ -156,6 +154,10 @@ header {
       transition: color .2s ease-out, transform .3s ease-out;
     }
   }
+  & a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+    color: var(--white);
+  }
 }
 
 #lang-icon {
@@ -171,9 +173,9 @@ main > * {
 
 #twitch-embed {
   background: linear-gradient(270deg, #9146ff, #9e8dff);
-  -webkit-animation: AnimationName 4s ease infinite;
-  -moz-animation: AnimationName 4s ease infinite;
-  animation: AnimationName 4s ease infinite;
+  -webkit-animation: TwitchFrame 4s ease infinite;
+  -moz-animation: TwitchFrame 4s ease infinite;
+  animation: TwitchFrame 4s ease infinite;
 }
 
 
@@ -196,17 +198,17 @@ main > * {
 }
 
 /* animazione della cornice di twitch */
-@-webkit-keyframes AnimationName {
+@-webkit-keyframes TwitchFrame {
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
 }
-@-moz-keyframes AnimationName {
+@-moz-keyframes TwitchFrame {
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
 }
-@keyframes AnimationName {
+@keyframes TwitchFrame {
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
